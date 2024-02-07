@@ -58,7 +58,7 @@ function password(obj) {
     if (typeof obj.name === "undefined" || typeof obj.birthYear === "undefined" || typeof obj.siteName === "undefined") {
         return "invalid"
     }
- 
+
     const birthYearDigit = obj.birthYear.toString()
     if (birthYearDigit.length !== 4) {
         return "please provide 4 digit"
@@ -68,4 +68,30 @@ function password(obj) {
     const kutupass = `${siteNameUperCase}#${obj.name}@${obj.birthYear}`
     return kutupass
 }
-console.log(password({ name: "kutubudin", birthYear: 4042, siteName: "Facebook" }))
+// console.log(password({ name: "kutubudin", birthYear: 4042, siteName: "Facebook" }))
+
+function monthlySavings(arr, livingCost) {
+    if(!Array.isArray(arr) || typeof livingCost !=="number"){
+        return "“invalid input”"
+    }
+    let totalIcome = 0
+    for (let income of arr) {
+        if (income >= 3000) {
+            const textInIncome = income - income * 20 / 100
+            totalIcome += textInIncome
+
+        } else if (income < 3000) {
+            totalIcome += income
+        }
+
+    }
+    const totalSave=totalIcome-livingCost
+    if(totalSave>=0){
+        return totalSave
+    }
+    else if(totalSave<0){
+        return "earn more"
+    }
+    // console.log(totalSave)
+}
+console.log(monthlySavings([ 1000 , 2000 , 2500 ] , 5000))
