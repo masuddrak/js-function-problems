@@ -34,11 +34,38 @@ function checkName(name) {
 
 function deleteInvalids(arr) {
 
+
+    let name = NaN
+    // console.log(typeof isNaN(name) === "number")
+    if (typeof isNaN(name) !== "number") {
+
+    }
+
     let newArr = []
     for (let element of arr) {
-        console.log(element)
+
+        if (typeof isNaN(element) !== "number") {
+            // console.log(element)
+
+        }
     }
 
 
 }
-deleteInvalids([NaN, 1, 12, 0, -1, undefined])
+// deleteInvalids([NaN, 1, 12, 0, -1, undefined])
+
+function password(obj) {
+    if (typeof obj.name === "undefined" || typeof obj.birthYear === "undefined" || typeof obj.siteName === "undefined") {
+        return "invalid"
+    }
+ 
+    const birthYearDigit = obj.birthYear.toString()
+    if (birthYearDigit.length !== 4) {
+        return "please provide 4 digit"
+    }
+
+    const siteNameUperCase = obj.siteName[0].toUpperCase() + obj.siteName.slice(1)
+    const kutupass = `${siteNameUperCase}#${obj.name}@${obj.birthYear}`
+    return kutupass
+}
+console.log(password({ name: "kutubudin", birthYear: 4042, siteName: "Facebook" }))
