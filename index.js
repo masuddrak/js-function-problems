@@ -33,27 +33,21 @@ function checkName(name) {
 // console.log(checkName("masud"))
 
 function deleteInvalids(arr) {
-
-
-    let name = NaN
-    // console.log(typeof isNaN(name) === "number")
-    if (typeof isNaN(name) !== "number") {
-
-    }
-
+if(!Array.isArray(arr)){
+return "Please input Array"
+}
     let newArr = []
     for (let element of arr) {
 
-        if (typeof isNaN(element) !== "number") {
-            // console.log(element)
-
+        if (!isNaN(element) && typeof element !=="object" && typeof element !=="string") {
+            newArr.push(element)
         }
     }
-
-
+return newArr
 }
-// deleteInvalids([NaN, 1, 12, 0, -1, undefined])
+console.log(deleteInvalids([ 1 , 2 , -3 ]))
 
+// 444444444444444444
 function password(obj) {
     if (typeof obj.name === "undefined" || typeof obj.birthYear === "undefined" || typeof obj.siteName === "undefined") {
         return "invalid"
@@ -71,7 +65,7 @@ function password(obj) {
 // console.log(password({ name: "kutubudin", birthYear: 4042, siteName: "Facebook" }))
 
 function monthlySavings(arr, livingCost) {
-    if(!Array.isArray(arr) || typeof livingCost !=="number"){
+    if (!Array.isArray(arr) || typeof livingCost !== "number") {
         return "“invalid input”"
     }
     let totalIcome = 0
@@ -85,13 +79,28 @@ function monthlySavings(arr, livingCost) {
         }
 
     }
-    const totalSave=totalIcome-livingCost
-    if(totalSave>=0){
+    const totalSave = totalIcome - livingCost
+    if (totalSave >= 0) {
         return totalSave
     }
-    else if(totalSave<0){
+    else if (totalSave < 0) {
         return "earn more"
     }
     // console.log(totalSave)
 }
-console.log(monthlySavings([ 1000 , 2000 , 2500 ] , 5000))
+// console.log(monthlySavings([ 1000 , 2000 , 2500 ] , 5000))
+
+
+//.............................
+
+const numbers = [58, 9, NaN, 6, NaN, 8, "hello"]
+for (let i of numbers) {
+    // console.log(!isNaN(i))
+    if (!isNaN(i)) {
+        // console.log(i)
+    }
+    if (typeof i === "number") {
+        // console.log(i)
+    }
+
+}
